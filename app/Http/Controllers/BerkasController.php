@@ -14,6 +14,7 @@ class BerkasController extends Controller
      */
     public function index()
     {
+        // berkas adalah nama tabel di database
         $berkas = DB::table('berkas')->get();
         return view('berkas.index', ['berkas' =>$berkas]);
     }

@@ -22,6 +22,7 @@
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
                 <a class="nav-link" href="{{url('/berkas')}}">Berkas</a>
+                <a class="nav-link" href="{{url('/permohonans')}}">Permohonan</a>
                 <a class="nav-link" href="{{url('/about')}}">About</a>
             </div>
         </div>

@@ -5,11 +5,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-10">
-                <h1 class="mt-2">Daftar Izin</h1>
+            <div class="col-12">
+                <h3 class="mt-2">Daftar Izin</h3>
 
                 <table class="table table-striped table-hover">
-                    <thead class="table-dark">
+                    <thead class="table-dark text-center">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nomor Berkas</th>
@@ -32,8 +32,14 @@
                             <td>{{ $pemohon->nama_bangunan }}</td>
                             <td>{{ $pemohon->alamat_bangunan }}</td>
                             <td>
-                                <a href="" class="badge bg-info text-dark">info</a>
-                                <a href="" class="badge bg-warning text-dark">delete</a>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <a href ="#" class="btn btn-warning btn-sm me-md-2" type="button">Info</a>
+                                    <a href ="#" class="btn btn-danger btn-sm" type="button">Delete</a>
+                                </div>
+
+{{--                                <a href="" class="btn btn-warning btn-sm">info</a>--}}
+{{--                                <a href="" class="btn btn-danger btn-sm">delete</a>--}}
+
                             </td>
                         </tr>
                     @endforeach
