@@ -6,7 +6,9 @@
     <div class="container">
         <div class="row">
             <div class="col-10">
-                <h1 class="mt-2">Hello!</h1>
+                <h1 class="mt-2">
+
+                    <section class="content">Hello!</h1>
             </div>
         </div>
     </div>

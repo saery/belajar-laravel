@@ -130,9 +130,24 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'nama_pemohon' => [
+            'required' => 'Nama Pemohon tidak boleh kosong!',
         ],
+        'nomor_berkas' => [
+            'size' => 'Harus terdiri dari 9 Karakter',
+        ],
+        'badan_usaha' => [
+            'required' => 'Badan Usaha tidak boleh kosong!',
+        ],
+        'permohonan' => [
+            'required' => 'Jenis Permohonan tidak boleh kosong!',
+        ],
+        'nama_bangunan' => [
+            'required' => 'Nama Bangunan tidak boleh kosong!',
+        ],
+        'alamat_bangunan' => [
+            'required' => 'Alamat tidak boleh kosong!',
+        ]
     ],
 
     /*
