@@ -9,3 +9,4 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/permohonans', 'PermohonansController@index');
 Route::get('/permohonans/{permohonan}', 'PermohonansController@show');
+
