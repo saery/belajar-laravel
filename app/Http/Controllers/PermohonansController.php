@@ -14,8 +14,10 @@ class PermohonansController extends Controller
      */
     public function index()
     {
-        $permohonans = Permohonan::all();
+        $permohonans = Permohonan::paginate(15);
+
         return view('permohonans.index', compact('permohonans'));
+
     }
 
     /**
@@ -36,15 +38,16 @@ class PermohonansController extends Controller
      */
     public function store(Request $request)
     {
-//        $permohonan = new Permohonan;
-//        $permohonan->nomor_berkas = $request->nomor_berkas;
-//        $permohonan->nama_pemohon = $request->nama_pemohon;
-//        $permohonan->badan_usaha = $request->badan_usaha;
-//        $permohonan->permohonan = $request->permohonan;
-//        $permohonan->nama_bangunan = $request->nama_bangunan;
-//        $permohonan->alamat_bangunan = $request->alamat_bangunan;
-//
-//        $permohonan->save();
+        $permohonan = new Permohonan;
+        $permohonan->nomor_berkas = $request->nomor_berkas;
+        $permohonan->nama_pemohon = $request->nama_pemohon;
+        $permohonan->badan_usaha = $request->badan_usaha;
+        $permohonan->permohonan = $request->permohonan;
+        $permohonan->nama_bangunan = $request->nama_bangunan;
+        $permohonan->alamat_bangunan = $request->alamat_bangunan;
+
+        $permohonan->save();
+
 //        Permohonan::create([
 //            'nomor_berkas'=>$request->nomor_berkas,
 //            'nama_pemohon'=>$request->nama_pemohon,
@@ -55,25 +58,17 @@ class PermohonansController extends Controller
 //        ]);
         $request->validate([
             'nama_pemohon' => 'required',
-            'nomor_berkas' => 'required|size:9',
+            'nomor_berkas' => 'size:9',
             'badan_usaha' => 'required',
             'permohonan' => 'required',
             'nama_bangunan' => 'required',
-            'alamat_bangunan' => 'required',
+            'alamat_bangunan' => 'required'
         ]);
 
-        Permohonan::created($request->all());
-
-        return redirect('/permohonans')->with('status', 'Data Permohonan berhasil ditambahkan!');
+//        Permohonan::created($request->all());
+//        return redirect('/permohonans')->with('status', 'Data Permohonan berhasil ditambahkan!');
+        return redirect('/permohonans')->with('status', 'Data Berhasil ditambahkan!');
     }
-//
-//    public function messages()
-//    {
-//        return [
-//            'nama_pemohon.required' => 'Nama harus diisi',
-//            'nomor_berkas.required' => 'Harus 9 digit',
-//        ];
-//    }
 
     /**
      * Display the specified resource.
@@ -112,11 +107,12 @@ class PermohonansController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Permohonan  $permohonan
+     * @param  \App\Permohonan  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Permohonan $permohonan)
     {
-        //
+        Permohonan::destroy($permohonan->id);
+        return redirect('/permohonans')->with('status', 'Data Berhasil Dihapus!');
     }
 }

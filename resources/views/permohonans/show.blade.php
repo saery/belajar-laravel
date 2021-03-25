@@ -16,9 +16,13 @@
                         <p class="card-text">{{ $permohonan->permohonan }}</p>
                         <p class="card-text">{{ $permohonan->nama_bangunan }}</p>
                         <p class="card-text">{{ $permohonan->alamat_bangunan }}</p>
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                        <button type="submit" class="btn btn-danger">Delete</button>
 
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                        <form action="{{ $permohonan->id }}" method="post" class="d-inline">
+                           @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
 
                         <a href="/permohonans" class="card-link">Back</a>
 
