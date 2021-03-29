@@ -23,6 +23,8 @@
                     @endforeach
                 </ul>
             </div>
+            <p>
+            {{ $permohonans->links() }}
         </div>
     </div>
 

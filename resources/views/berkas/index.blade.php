@@ -125,34 +125,22 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                     <button type="button" class="btn btn-success">Edit</button>
-                                                    <form action="{{ $pemohon->id }}" method="post" class="d-inline">
-                                                        @method('delete')
-                                                        @csrf
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                                            <input type="hidden" name="_method" value="POST">
-                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    </form>
+                                                    <button type="button" method="post" class="btn btn-danger">Delete</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-{{--                                <form action="{{ $berkas->id }}" method="post" class="d-inline">--}}
-{{--                                    @method('delete')--}}
-{{--                                    @csrf--}}
-{{--                                    <button type="submit" class="btn btn-danger">Delete</button>--}}
-{{--                                </form>--}}
 
 
-{{--                                <a href="" class="btn btn-warning btn-sm">info</a>--}}
-{{--                                <a href="" class="btn btn-danger btn-sm">delete</a>--}}
 
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
+
+                {{ $berkas->links() }}
             </div>
         </div>
     </div>

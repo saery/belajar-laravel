@@ -14,7 +14,7 @@ class PermohonansController extends Controller
      */
     public function index()
     {
-        $permohonans = Permohonan::paginate(15);
+        $permohonans = Permohonan::paginate(5);
 
         return view('permohonans.index', compact('permohonans'));
 

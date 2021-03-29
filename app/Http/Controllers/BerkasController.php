@@ -15,10 +15,14 @@ class BerkasController extends Controller
      */
     public function index()
     {
+        return view('berkas.index', [
+        'berkas'=>DB::table('berkas')->paginate(5)
+            ]);
+
         // berkas adalah nama tabel di database
 //        $berkas = DB::table('berkas')->paginate(10)->get();
-        $berkas = DB::table('berkas')->paginate(10);
-        return view('berkas.index', ['berkas' =>$berkas]);
+//        $berkas = DB::table('berkas')->paginate(10);
+//        return view('berkas.index', ['berkas' =>$berkas]);
     }
 
     /**
@@ -101,9 +105,9 @@ class BerkasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($pemohon)
+    public function destroy(Berkas $berkas)
     {
-        Berkas::destroy($pemohon);
+        Berkas::destroy($berkas);
         return redirect('/berkas')->with('status', 'Data Berhasil Dihapus!');
     }
 }
