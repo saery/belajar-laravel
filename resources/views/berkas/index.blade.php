@@ -17,7 +17,7 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <!-- Modal -->
+                <!-- Modal Tambah Data -->
                 <div class="modal fade" id="tambahData" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-scrollable">
                         <div class="modal-content">
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Tampilan Index -->
                 <table class="table table-striped table-hover">
                     <thead class="table-dark">
                     <tr>
@@ -99,20 +99,19 @@
                             <td>{{ $pemohon->nama_pemohon }}</td>
                             <td>{{ $pemohon->jenis_permohonan }}</td>
                             <td>
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-auto">
-{{--                                    <a href ="#" class="btn btn-warning btn-sm me-md-2" type="button">Info</a>--}}
 
+{{--                                <div class="d-grid gap-2 d-md-flex justify-content-md-auto">--}}
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailBerkas">
                                         Detail
                                     </button>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal fade" id="detailBerkas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">Detail Berkas</h5>
+                                                    <h5 class="modal-title" id="detailBerkasLabel">Detail Berkas</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
@@ -123,7 +122,7 @@
                                                     <dt class="fw-bold">Alamat Bangunan :</dt> <p>{{ $pemohon->alamat_bangunan }}</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+{{--                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
                                                     <button type="button" class="btn btn-success">Edit</button>
                                                     <button type="button" method="post" class="btn btn-danger">Delete</button>
                                                 </div>
@@ -131,16 +130,16 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
+                        @endforeach
                             </td>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
 
+                    </tbody>
+
+                </table>
                 {{ $berkas->links() }}
+
+
             </div>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Berkas;
+use App\Permohonan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,9 +16,9 @@ class BerkasController extends Controller
      */
     public function index()
     {
-        return view('berkas.index', [
-        'berkas'=>DB::table('berkas')->paginate(5)
-            ]);
+        $berkas = Berkas::paginate(5);
+
+        return view('berkas.index', compact('berkas'));
 
         // berkas adalah nama tabel di database
 //        $berkas = DB::table('berkas')->paginate(10)->get();

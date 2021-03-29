@@ -18,7 +18,7 @@ class CreatePermohonansTable extends Migration
             $table->char('nomor_berkas', 9)->unique();
             $table->string('nama_pemohon');
             $table->string('badan_usaha');
-            $table->string('permohan');
+            $table->string('permohonan');
             $table->string('nama_bangunan');
             $table->string('alamat_bangunan');
             $table->timestamps();

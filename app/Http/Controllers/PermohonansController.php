@@ -89,7 +89,7 @@ class PermohonansController extends Controller
      */
     public function edit(Permohonan $permohonan)
     {
-        //
+        return view('permohonans.edit', compact('permohonan'));
     }
 
     /**
@@ -101,7 +101,27 @@ class PermohonansController extends Controller
      */
     public function update(Request $request, Permohonan $permohonan)
     {
-        //
+        $request->validate([
+            'nomor_berkas' => 'size:9',
+            'nama_pemohon' => 'required',
+            'badan_usaha' => 'required',
+            'permohonan' => 'required',
+            'nama_bangunan' => 'required',
+            'alamat_bangunan' => 'required'
+        ]);
+
+        Permohonan::where('id', $permohonan->id)
+            ->update([
+                'nomor_berkas' => $request->nomor_berkas,
+                'nama_pemohon' => $request->nama_pemohon,
+                'badan_usaha' => $request->badan_usaha,
+                'permohonan' => $request->permohonan,
+                'nama_bangunan' => $request->nama_bangunan,
+                'alamat_bangunan' => $request->alamat_bangunan
+            ]);
+
+
+        return redirect('/permohonans')->with('status', 'Data Berhasil Diubah!');
     }
 
     /**
