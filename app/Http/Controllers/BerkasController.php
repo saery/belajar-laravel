@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Berkas;
-use App\Permohonan;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class BerkasController extends Controller
 {
@@ -72,20 +70,18 @@ class BerkasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Berkas $berkas)
     {
-        //
+        return view('berkas.show', compact('berkas'));
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Berkas $berkas)
     {
-        //
+        return view('berkas.edit', compact('berkas'));
     }
 
     /**
@@ -95,9 +91,29 @@ class BerkasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Berkas $berkas)
     {
-        //
+        $request->validate([
+            'nomor_berkas' => 'size:9',
+            'nama_pemohon' => 'required',
+            'badan_usaha' => 'required',
+            'jenis_permohonan' => 'required',
+            'nama_bangunan' => 'required',
+            'alamat_bangunan' => 'required'
+        ]);
+
+        Berkas::where('id', $berkas->id)
+            ->update([
+                'nomor_berkas' => $request->nomor_berkas,
+                'nama_pemohon' => $request->nama_pemohon,
+                'badan_usaha' => $request->badan_usaha,
+                'jenis_permohonan' => $request->jenis_permohonan,
+                'nama_bangunan' => $request->nama_bangunan,
+                'alamat_bangunan' => $request->alamat_bangunan
+            ]);
+
+
+        return redirect('/berkas')->with('status', 'Data Berhasil Diubah!');
     }
 
     /**
@@ -108,7 +124,7 @@ class BerkasController extends Controller
      */
     public function destroy(Berkas $berkas)
     {
-        Berkas::destroy($berkas);
+        Berkas::destroy($berkas->id);
         return redirect('/berkas')->with('status', 'Data Berhasil Dihapus!');
     }
 }

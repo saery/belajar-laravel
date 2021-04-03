@@ -6,6 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
+
                 <h3 class="mt-2">Daftar Permohonan</h3>
 
                 <a href="/permohonans/create" class="btn btn-primary my-3">Tambah Data</a>
@@ -14,6 +15,9 @@
                         {{ session('status') }}
                     </div>
                 @endif
+
+                <a href="{{ route("print") }}" class="btn btn-success" target="_blank">PDF</a>
+
                 <ul class="list-group">
                     @foreach($permohonans as $permohonan)
                     <li class="list-group-item d-flex justify-content-between align-items-center">

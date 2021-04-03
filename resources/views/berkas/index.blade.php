@@ -99,44 +99,17 @@
                             <td>{{ $pemohon->nama_pemohon }}</td>
                             <td>{{ $pemohon->jenis_permohonan }}</td>
                             <td>
+                            <a href="/berkas/{{ $pemohon->id }}" class="badge bg-warning text-dark">Detail</a>
 
-{{--                                <div class="d-grid gap-2 d-md-flex justify-content-md-auto">--}}
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailBerkas">
-                                        Detail
-                                    </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="detailBerkas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-scrollable">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="detailBerkasLabel">Detail Berkas</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <dt class="fw-bold">Pemohon :</dt> <p>{{ $pemohon->nama_pemohon }}</p>
-                                                    <dt class="fw-bold">Kelembagaan :</dt> <p>{{ $pemohon->badan_usaha }}</p>
-                                                    <dt class="fw-bold">Jenis Permohonan :</dt> <p>{{ $pemohon->jenis_permohonan }}</p>
-                                                    <dt class="fw-bold">Fungsi Bangunan :</dt> <p>{{ $pemohon->nama_bangunan }}</p>
-                                                    <dt class="fw-bold">Alamat Bangunan :</dt> <p>{{ $pemohon->alamat_bangunan }}</p>
-                                                </div>
-                                                <div class="modal-footer">
-{{--                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
-                                                    <button type="button" class="btn btn-success">Edit</button>
-                                                    <button type="button" method="post" class="btn btn-danger">Delete</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        @endforeach
+                        </div>
+                            @endforeach
                             </td>
                         </tr>
-
+            </table>
                     </tbody>
 
-                </table>
+
+
                 {{ $berkas->links() }}
 
 

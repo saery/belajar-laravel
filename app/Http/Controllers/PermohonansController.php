@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Permohonan;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PermohonansController extends Controller
 {
@@ -134,5 +136,15 @@ class PermohonansController extends Controller
     {
         Permohonan::destroy($permohonan->id);
         return redirect('/permohonans')->with('status', 'Data Berhasil Dihapus!');
+    }
+
+    public function print()
+    {
+        /* @var \Barryvdh\DomPDF\PDF $pdf */
+        $permohonans = Permohonan::all();
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('permohonans.cetak_pdf',['permohonans' => $permohonans]);
+
+        return $pdf->download();
     }
 }

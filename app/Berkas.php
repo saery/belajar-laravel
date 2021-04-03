@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Berkas extends Model
 {
-//
-    protected $fillable = ['nomor_berkas', 'nama_pemohon', 'badan_usaha', 'jenis_permohonan', 'alamat_bangunan'];
+    protected $table = 'berkas';
+    protected $fillable = [
+        'nomor_berkas',
+        'nama_pemohon',
+        'badan_usaha',
+        'jenis_permohonan',
+        'nama_bangunan',
+        'alamat_bangunan'
+    ];
 }
